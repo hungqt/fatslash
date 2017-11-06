@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody2D rbody;
 	Animator anim;
+	public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +29,6 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool ("iswalking", false);
 		}
 
-		rbody.MovePosition (rbody.position + movement_vector * Time.deltaTime * 150);
+		rbody.MovePosition (rbody.position + movement_vector * Time.deltaTime * speed);
 	}
 }
