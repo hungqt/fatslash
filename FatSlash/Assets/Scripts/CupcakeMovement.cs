@@ -11,11 +11,12 @@ public class CupcakeMovement : MonoBehaviour {
 	private float Ydif;
 	public float speed;
 	Camera mycam;
-
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		mycam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera> ();
+		anim = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
@@ -34,6 +35,8 @@ public class CupcakeMovement : MonoBehaviour {
 			PlayerDirection = new Vector2 (Xdif, Ydif);
 
 			transform.Translate(PlayerDirection * speed);
+			anim.SetFloat ("input_x", PlayerDirection.x);
+			anim.SetFloat ("input_y", PlayerDirection.y);
 		}
 
 	}
