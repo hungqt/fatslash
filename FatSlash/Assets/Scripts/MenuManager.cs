@@ -9,4 +9,8 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("Fatslash");
 	}
 
+	public void ToMenu() {
+		SceneManager.LoadScene ("Menu");
+	}
+
 }
