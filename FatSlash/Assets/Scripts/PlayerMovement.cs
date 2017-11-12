@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector2 movement_vector;
 	private Vector2 knockback_vector;
 	bool collided = false;
+	public int health;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour {
 		anim.SetBool ("isHit", true);
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
+		health -= 1;
 		yield return 0;
 	}
 
