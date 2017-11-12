@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour {
 
 	public Transform target;
-	Camera mycam;
+//	Camera mycam;
 
 	// Use this for initialization
 	void Start () {
-		mycam = GetComponent<Camera> ();
+//		mycam = GetComponent<Camera> ();
 	}
 	
 	// Update is called once per frame
