@@ -39,15 +39,15 @@ public class PlayerMovement : MonoBehaviour {
 		yield return 0;
 	}
 
-//	void OnCollisionEnter2D(Collision2D col){
-//		if (col.gameObject.tag == ("Cupcake")) {
-//			float knockbackPower = 1000;
-//			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
-//			knockbackDirection = -knockbackDirection.normalized;
-//
-//			rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
-//			Debug.Log ("treffer den");
-//		}
-//	}
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.tag == ("Cupcake")) {
+			float knockbackPower = 1000;
+			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
+			knockbackDirection = -knockbackDirection.normalized;
+
+			rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
+			Debug.Log ("treffer den");
+		}
+	}
 
 }
