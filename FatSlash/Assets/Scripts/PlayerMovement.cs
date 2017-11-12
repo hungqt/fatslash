@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		if (!collided) {
 			movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+			anim.SetBool ("isHit", false);
 		}
 
 		if (movement_vector != Vector2.zero) {
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public IEnumerator Knockback(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
+		anim.SetBool ("isHit", true);
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
 		yield return 0;
