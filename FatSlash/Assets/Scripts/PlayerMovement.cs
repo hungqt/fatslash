@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed;
 	private Vector2 movement_vector;
 	private Vector2 knockback_vector;
+	bool collided = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		movement_vector = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		if (!collided) {
+			movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		}
 
 		if (movement_vector != Vector2.zero) {
 			anim.SetBool ("iswalking", true);
@@ -32,22 +34,14 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		rbody.MovePosition (rbody.position + movement_vector * Time.deltaTime * speed);
+		collided = false;
 	}
 
 	public IEnumerator Knockback(float knockbackPower, Vector2 knockbackDirection) {
-		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
+		collided = true;
+//		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
+		movement_vector = knockbackDirection * knockbackPower;
 		yield return 0;
-	}
-
-	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.tag == ("Cupcake")) {
-			float knockbackPower = 1000;
-			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
-			knockbackDirection = -knockbackDirection.normalized;
-
-			rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
-			Debug.Log ("treffer den");
-		}
 	}
 
 }
