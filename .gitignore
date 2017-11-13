@@ -7,6 +7,7 @@ Temp/
 /Build/
 /Builds/
 /Assets/AssetStoreTools*
+/Assets/*.meta
 
 # Visual Studio 2015 cache directory
 /.vs/
