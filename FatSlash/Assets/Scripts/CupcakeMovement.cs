@@ -15,6 +15,11 @@ public class CupcakeMovement : MonoBehaviour {
 	Camera mycam;
 	Animator anim;
 
+	bool collided = false;
+	public int health;
+	private Vector2 movement_vector;
+	private Vector2 knockback_vector;
+
 	// Use this for initialization
 	void Start () {
 		mycam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera> ();
@@ -32,14 +37,19 @@ public class CupcakeMovement : MonoBehaviour {
 		bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 
 		if (onScreen) {
-			Xdif = playerPosition.x - transform.position.x;
-			Ydif = playerPosition.y - transform.position.y;
 
-			playerPositionDirection = new Vector2 (Xdif, Ydif);
+			if (!collided) {
+				Xdif = playerPosition.x - transform.position.x;
+				Ydif = playerPosition.y - transform.position.y;
 
-			transform.Translate(playerPositionDirection * speed);
+				playerPositionDirection = new Vector2 (Xdif, Ydif);
+			} 
+
+			transform.Translate (playerPositionDirection * speed);
+
 			anim.SetFloat ("input_x", playerPositionDirection.x);
 			anim.SetFloat ("input_y", playerPositionDirection.y);
+			collided = false;
 		}
 
 	}
@@ -52,6 +62,18 @@ public class CupcakeMovement : MonoBehaviour {
 			Debug.Log (transform.position);
 			StartCoroutine(player.Knockback(knockbackPower, knockbackDirection));
 		}
+	}
+
+	public IEnumerator KnockbackEnemy(float knockbackPower, Vector2 knockbackDirection) {
+		collided = true;
+		anim.SetBool ("isHit", true);
+		Debug.Log (knockbackDirection.x);
+		playerPositionDirection = knockbackDirection * knockbackPower;
+		health -= 1;
+		if (health < 1) {
+			Destroy(gameObject);
+		}
+		yield return 0;
 	}
 		
 }

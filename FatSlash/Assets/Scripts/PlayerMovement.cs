@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
 		
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-
 	}
 	
 	// Update is called once per frame
@@ -42,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 	public IEnumerator Knockback(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
 		anim.SetBool ("isHit", true);
+		Debug.Log (knockbackDirection.x);
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
 		health -= 1;
