@@ -5,14 +5,13 @@ using UnityEngine;
 public class SlashScript : MonoBehaviour {
 
 	Animator anim;
-	CupcakeMovement cupcake;
+//	CupcakeMovement cupcake;
 	public float knockbackPower;
 
 	// Use this for initialization
 	void Start () {
-//		gameObject.SetActive (false);
 		anim = GetComponent<Animator> ();
-		cupcake = GameObject.FindGameObjectWithTag("Cupcake").GetComponent<CupcakeMovement>();
+//		cupcake = GameObject.FindGameObjectWithTag("Cupcake").GetComponent<CupcakeMovement>();
 	}
 	
 	// Update is called once per frame
@@ -22,12 +21,12 @@ public class SlashScript : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.tag == ("Cupcake")) {
-			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(cupcake.transform.position.x, cupcake.transform.position.y);
-			knockbackDirection = -knockbackDirection.normalized;
-			StartCoroutine(cupcake.KnockbackEnemy(knockbackPower, knockbackDirection));
-		}
-	}
+//	void OnCollisionEnter2D(Collision2D col){
+//		if (col.gameObject.tag == ("Cupcake")) {
+//			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y);
+//			knockbackDirection = -knockbackDirection.normalized;
+//			StartCoroutine(cupcake.KnockbackEnemy(knockbackPower, knockbackDirection));
+//		}
+//	}
 
 }

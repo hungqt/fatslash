@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour {
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
 		health -= 1;
+		if (health < 1) {
+			SceneManager.LoadScene ("Lose");
+		}
 		yield return 0;
 	}
 
