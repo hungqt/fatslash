@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown ("space")) {
+			
+		}
 		if (!collided) {
 			movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 			anim.SetBool ("isHit", false);
@@ -41,7 +44,6 @@ public class PlayerMovement : MonoBehaviour {
 	public IEnumerator Knockback(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
 		anim.SetBool ("isHit", true);
-		Debug.Log ("Flashyflash");
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
 		health -= 1;

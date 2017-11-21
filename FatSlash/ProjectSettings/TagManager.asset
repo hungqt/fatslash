@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cupcake
   - Slash
+  - Weapon
   layers:
   - Default
   - TransparentFX

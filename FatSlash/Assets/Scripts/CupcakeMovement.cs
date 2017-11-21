@@ -39,6 +39,7 @@ public class CupcakeMovement : MonoBehaviour {
 		if (onScreen) {
 
 			if (!collided) {
+				anim.SetBool ("isHit", false);
 				Xdif = playerPosition.x - transform.position.x;
 				Ydif = playerPosition.y - transform.position.y;
 
@@ -68,7 +69,7 @@ public class CupcakeMovement : MonoBehaviour {
 
 	public IEnumerator KnockbackEnemy(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
-//		anim.SetBool ("isHit", true);
+		anim.SetBool ("isHit", true);
 		playerPositionDirection = knockbackDirection * knockbackPower;
 		health -= 1;
 		if (health < 1) {
