@@ -55,19 +55,20 @@ public class CupcakeMovement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.layer == (10)) {
+			Debug.Log ("treffer slash");
+			return;
+		}
 		if (col.gameObject.tag == ("Player")) {
 			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(player.transform.position.x, player.transform.position.y);
 			knockbackDirection = -knockbackDirection.normalized;
-			Debug.Log (knockbackDirection);
-			Debug.Log (transform.position);
 			StartCoroutine(player.Knockback(knockbackPower, knockbackDirection));
 		}
 	}
 
 	public IEnumerator KnockbackEnemy(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
-		anim.SetBool ("isHit", true);
-		Debug.Log (knockbackDirection.x);
+//		anim.SetBool ("isHit", true);
 		playerPositionDirection = knockbackDirection * knockbackPower;
 		health -= 1;
 		if (health < 1) {

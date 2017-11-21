@@ -41,11 +41,12 @@ public class PlayerMovement : MonoBehaviour {
 	public IEnumerator Knockback(float knockbackPower, Vector2 knockbackDirection) {
 		collided = true;
 		anim.SetBool ("isHit", true);
-		Debug.Log (knockbackDirection.x);
+		Debug.Log ("Flashyflash");
 //		rbody.MovePosition (rbody.position + knockbackDirection * knockbackPower * Time.deltaTime);
 		movement_vector = knockbackDirection * knockbackPower;
 		health -= 1;
 		yield return 0;
 	}
+
 
 }

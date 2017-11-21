@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 40325282}
   m_Layer: 8
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Slash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,13 +239,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc93f76228f744829aa569a57a222b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackPower: 4000
 --- !u!60 &150781766
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150781761}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1172,7 +1173,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1523671012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 811, y: -71, z: 0}
+  m_LocalPosition: {x: 132, y: -398, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1347,6 +1348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.01
   knockbackPower: 10
+  health: 3
 --- !u!1 &1545200266
 GameObject:
   m_ObjectHideFlags: 0

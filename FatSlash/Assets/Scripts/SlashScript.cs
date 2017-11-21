@@ -5,7 +5,6 @@ using UnityEngine;
 public class SlashScript : MonoBehaviour {
 
 	Animator anim;
-	Renderer renderer;
 	CupcakeMovement cupcake;
 	public float knockbackPower;
 
@@ -13,14 +12,12 @@ public class SlashScript : MonoBehaviour {
 	void Start () {
 //		gameObject.SetActive (false);
 		anim = GetComponent<Animator> ();
-		renderer = GetComponent<Renderer> ();
 		cupcake = GameObject.FindGameObjectWithTag("Cupcake").GetComponent<CupcakeMovement>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("space")) {
-			gameObject.SetActive (true);
 			anim.SetTrigger ("Attack");
 		}
 	}
