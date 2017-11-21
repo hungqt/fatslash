@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour {
 	public Sprite[] HeartSprites;
 
 	public Image HeartUI;
+	public Text points;
 
 	private PlayerMovement player;
 
@@ -19,5 +20,6 @@ public class HUD : MonoBehaviour {
 	void Update() {
 	
 		HeartUI.sprite = HeartSprites[player.health];
+		points.text = "" + player.getPoints ();
 	}
 }

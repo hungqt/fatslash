@@ -73,6 +73,8 @@ public class CupcakeMovement : MonoBehaviour {
 		playerPositionDirection = knockbackDirection * knockbackPower;
 		health -= 1;
 		if (health < 1) {
+			player.addPoints (1000);
+			Debug.Log ("" + player.getPoints ());
 			Destroy(gameObject);
 		}
 		yield return 0;

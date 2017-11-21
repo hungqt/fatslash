@@ -12,19 +12,20 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector2 knockback_vector;
 	bool collided = false;
 	public int health;
+	private int points;
 
 	// Use this for initialization
 	void Start () {
-		
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		points = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("space")) {
-			
-		}
+//		if (Input.GetKeyDown ("space")) {
+//			
+//		}
 		if (!collided) {
 			movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 			anim.SetBool ("isHit", false);
@@ -57,5 +58,14 @@ public class PlayerMovement : MonoBehaviour {
 			SceneManager.LoadScene ("Win");
 		}
 	}
+
+	public void addPoints(int addedPoints){
+		points += addedPoints;
+	}
+
+	public int getPoints(){
+		return points;
+	}
+
 
 }
