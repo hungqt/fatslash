@@ -12,8 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/FatSlash.unity
     guid: 09695adbe0b8645738f7fdbd6e3c3c39
   - enabled: 1
-    path: Assets/Scenes/Win.unity
-    guid: 5e3357013f1ef4334a9f22d43536d9fd
-  - enabled: 1
     path: Assets/Scenes/Lose.unity
+    guid: 5e3357013f1ef4334a9f22d43536d9fd
+  - enabled: 0
+    path: Assets/Scenes/Win.unity
     guid: 1f2841dfc29dc4a4380de098e8cf0fc9
+  - enabled: 1
+    path: Assets/Scenes/Win1.unity
+    guid: a7bb061fd590840d0a1fb95a836dc149
+  - enabled: 1
+    path: Assets/Scenes/Win2.unity
+    guid: 8e715d8729edf4341acb8dc35dc216b8
+  - enabled: 1
+    path: Assets/Scenes/Lvl2.unity
+    guid: c2cc4accc45b34f7da5f2c8ba0be854c

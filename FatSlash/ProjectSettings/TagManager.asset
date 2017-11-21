@@ -8,6 +8,7 @@ TagManager:
   - Slash
   - Weapon
   - Portal
+  - Portal2
   layers:
   - Default
   - TransparentFX

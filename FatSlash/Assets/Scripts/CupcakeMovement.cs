@@ -59,7 +59,6 @@ public class CupcakeMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.layer == (10)) {
-			Debug.Log ("treffer slash");
 			Vector2 knockbackDirection = col.contacts[0].point - new Vector2(col.gameObject.transform.position.x, col.gameObject.transform.position.y);
 			knockbackDirection = knockbackDirection.normalized;
 

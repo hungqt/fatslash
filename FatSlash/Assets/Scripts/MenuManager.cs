@@ -13,4 +13,7 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("Menu");
 	}
 
+	public void ToNextLvl() {
+		SceneManager.LoadScene ("Lvl2");
+	}
 }

@@ -58,7 +58,11 @@ public class PlayerMovement : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag == ("Portal")) {
 			// U win
-			SceneManager.LoadScene ("Win");
+			SceneManager.LoadScene ("Win1");
+		}
+
+		else if (col.gameObject.tag == ("Portal2")) {
+			SceneManager.LoadScene ("Win2");
 		}
 	}
 
