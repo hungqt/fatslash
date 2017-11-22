@@ -18,14 +18,13 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-		points = 0;
+		PlayerPrefs.SetInt ("Score", 0);
+		points = PlayerPrefs.GetInt("Score");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-//		if (Input.GetKeyDown ("space")) {
-//			
-//		}
+
 		if (!collided) {
 			movement_vector = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 			anim.SetBool ("isHit", false);
@@ -50,7 +49,12 @@ public class PlayerMovement : MonoBehaviour {
 		movement_vector = knockbackDirection * knockbackPower;
 		health -= 1;
 		if (health < 1) {
-			SceneManager.LoadScene ("Lose");
+			PlayerPrefs.SetInt ("Score", points);
+			if (SceneManager.GetActiveScene().name == "FatSlash") {
+				SceneManager.LoadScene ("Lose");
+			} else {
+				SceneManager.LoadScene ("Lose2");
+			}
 		}
 		yield return 0;
 	}
@@ -71,6 +75,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public int getPoints(){
+		PlayerPrefs.SetInt ("Score", points);
 		return points;
 	}
 

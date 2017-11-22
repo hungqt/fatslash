@@ -10,13 +10,13 @@ public class CupcakeMovement : MonoBehaviour {
 	private Vector2 playerPositionDirection;
 	private float Xdif;
 	private float Ydif;
-	private float speed;
+	public float speed;
 	private float knockbackPower;
 	private Camera mycam;
 	private Animator anim;
-
+	public bool boss;
 	private bool collided = false;
-	private int health;
+	public int health;
 	private Vector2 movement_vector;
 	private Vector2 knockback_vector;
 
@@ -25,6 +25,11 @@ public class CupcakeMovement : MonoBehaviour {
 		speed = 0.01f;
 		knockbackPower = 10;
 		health = 3;
+		if (boss) {
+			health = 10;
+			speed = 0.02f;
+			knockbackPower = 15;
+		}
 		mycam = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<Camera> ();
 		anim = GetComponent<Animator> ();
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -77,7 +82,11 @@ public class CupcakeMovement : MonoBehaviour {
 		playerPositionDirection = knockbackDirection * knockbackPower;
 		health -= 1;
 		if (health < 1) {
-			player.addPoints (1000);
+			if (!boss) {
+				player.addPoints (1000);
+			} else {
+				player.addPoints (5000);
+			}
 			Destroy(gameObject);
 		}
 		yield return 0;

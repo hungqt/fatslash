@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Portal
   - Portal2
+  - GlobalScore
   layers:
   - Default
   - TransparentFX
