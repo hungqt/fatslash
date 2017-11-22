@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void addPoints(int addedPoints){
 		points += addedPoints;
+		PlayerPrefs.SetInt ("Score", points);
 	}
 
 	public int getPoints(){

@@ -20,6 +20,7 @@ public class HUD : MonoBehaviour {
 	void Update() {
 	
 		HeartUI.sprite = HeartSprites[player.health];
-		points.text = "" + player.getPoints ();
+//		points.text = "" + player.getPoints ();
+		points.text = "Score: " + PlayerPrefs.GetInt("Score");
 	}
 }
